@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #signUpForm, #welcomePage {
+            display: none;
+        }
+
+        #signUpForm.active, #welcomePage.active {
+            display: block;
+        }
+
+        #signUpForm {
+            text-align: center;
+        }
+
+        #welcomePage {
+            background: url('https://via.placeholder.com/800x600.png?text=Samir+Hawari') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            max-width: 300px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="signUpForm" class="active">
+        <h2>Sign Up</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="validate()">Continue</button>
+        <div id="error" class="error"></div>
+    </div>
+    <div id="welcomePage">
+        <div>HAVE A GOOD DAY</div>
+    </div>
+
+    <script>
+        function validate() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error');
+
+            if (username === "samirhawari" && password === "samirkhan") {
+                document.getElementById('signUpForm').classList.remove('active');
+                document.getElementById('welcomePage').classList.add('active');
+            } else {
+                errorDiv.innerText = "Wrong username or password.";
+            }
+        }
+    </script>
+</body>
+</html>
